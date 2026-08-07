@@ -1,4 +1,6 @@
-﻿
+﻿using System;
+using System.Globalization;
+
 while (true)
 {
     ExibirMenu();
@@ -7,6 +9,16 @@ while (true)
     switch (opcao)
     {
         case "1":
+            Console.WriteLine("Digite o seu nome completo: ");
+            string nomeUsuario = Console.ReadLine();
+            Console.WriteLine("Agora, digite o seu saldo incial: ");
+            decimal saldoInicial = decimal.Parse(Console.ReadLine());
+
+            Console.WriteLine("Conta criada com sucesso!");
+            Console.WriteLine($"Titular:  + {nomeUsuario}");
+            Console.WriteLine($"Saldo Inicial: {saldoInicial:C}");
+            break;
+                 
         case "2":
         case "3":
         case "4":
