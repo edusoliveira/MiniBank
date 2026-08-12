@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MiniBank;
+using System;
 using System.Globalization;
 
 while (true)
@@ -9,14 +10,17 @@ while (true)
     switch (opcao)
     {
         case "1":
+
+            Conta conta = new Conta();
+
             Console.WriteLine("Digite o seu nome completo: ");
-            string nomeUsuario = Console.ReadLine();
+            conta.Titular = Console.ReadLine();
             Console.WriteLine("Agora, digite o seu saldo incial: ");
-            decimal saldoInicial = decimal.Parse(Console.ReadLine());
+            conta.Saldo = decimal.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
             Console.WriteLine("Conta criada com sucesso!");
-            Console.WriteLine($"Titular:  + {nomeUsuario}");
-            Console.WriteLine($"Saldo Inicial: {saldoInicial:C}");
+            Console.WriteLine($"Titular: {conta.Titular}");
+            Console.WriteLine($"Saldo Inicial: {conta.Saldo:C}");
             break;
                  
         case "2":
