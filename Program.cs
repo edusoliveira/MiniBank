@@ -2,7 +2,10 @@
 using System;
 using System.Globalization;
 
+Conta conta = new Conta();
+
 while (true)
+
 {
     ExibirMenu();
     string opcao = Console.ReadLine();
@@ -10,9 +13,6 @@ while (true)
     switch (opcao)
     {
         case "1":
-
-            Conta conta = new Conta();
-
             Console.WriteLine("Digite o seu nome completo: ");
             conta.Titular = Console.ReadLine();
             Console.WriteLine("Agora, digite o seu saldo incial: ");
@@ -22,11 +22,23 @@ while (true)
             Console.WriteLine($"Titular: {conta.Titular}");
             Console.WriteLine($"Saldo Inicial: {conta.Saldo:C}");
             break;
-                 
-        case "2":
+
+        case "2": 
+            Console.WriteLine("Digite o valor do depósito: ");
+            decimal valor = decimal.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            conta.Depositar(valor);
+            Console.WriteLine($"Depósito realizado! Saldo atual: {conta.Saldo:C}");
+            break;
+
         case "3":
+            Console.WriteLine("Digite o valor do saque: ");
+            decimal valorSaque = decimal.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            conta.Sacar(valorSaque);
+            Console.WriteLine($"Saque realizado! O valor do seu saque foi de: {valorSaque:C}");
+            break;
+
         case "4":
-            Console.WriteLine("Funcionalidade em desenvolvimento...");
+            Console.WriteLine($"Esse é o seu saldo: {conta.Saldo:C}");
             break;
         case "5":
             Console.WriteLine("Obrigado por usar o MiniBank. Até logo!");
